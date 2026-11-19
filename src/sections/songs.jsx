@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 
 import { songs } from "../data/songs";
-import "./Songs.css";
+import "./songs.css";
 
 export default function Songs() {
   const [activeSong, setActiveSong] = useState(songs[0]);
