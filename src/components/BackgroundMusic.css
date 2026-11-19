@@ -1,0 +1,84 @@
+
+.bgm-button {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+  z-index: 2000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 13px 18px;
+
+  color: var(--ice-white);
+  background: rgba(4, 11, 17, 0.9);
+
+  border: 1px solid var(--blood-red);
+  border-radius: 30px;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  box-shadow: 0 0 20px var(--red-glow);
+
+  transition: all 0.3s ease;
+}
+
+.bgm-button:hover {
+  color: white;
+  background: var(--blood-red);
+  transform: translateY(-3px);
+  box-shadow: 0 0 28px var(--red-glow);
+}
+
+.bgm-button.playing {
+  color: white;
+  background: var(--blood-red);
+  box-shadow: 0 0 22px var(--red-glow);
+}
+
+.music-note {
+  animation: musicPulse 1s infinite alternate;
+}
+
+@keyframes musicPulse {
+  from {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  to {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+  .bgm-button {
+    right: 15px;
+    bottom: 15px;
+    padding: 12px 15px;
+  }
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+  .music-note {
+    animation: none;
+  }
+
+  .bgm-button {
+    transition: none;
+  }
+}

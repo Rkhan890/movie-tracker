@@ -1,0 +1,607 @@
+
+/* =========================================
+   KING — CINEMATIC HERO
+========================================= */
+
+.hero-section {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 850px;
+  height: calc(100vh - 82px);
+  max-height: 1100px;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  background-position: center 25%;
+  background-size: cover;
+}
+
+/* =========================================
+   BACKGROUND TREATMENT
+========================================= */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 9, 15, 0.97) 0%,
+      rgba(3, 9, 15, 0.88) 32%,
+      rgba(3, 9, 15, 0.48) 65%,
+      rgba(3, 9, 15, 0.12) 100%
+    ),
+    linear-gradient(
+      0deg,
+      var(--bg-primary) 0%,
+      transparent 35%,
+      rgba(5, 10, 14, 0.15) 100%
+    );
+}
+
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 180px rgba(0, 0, 0, 0.65);
+}
+
+.hero-red-glow {
+  position: absolute;
+  top: 20%;
+  left: -180px;
+  width: 350px;
+  height: 350px;
+  background: rgba(215, 25, 45, 0.15);
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.09;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}
+
+/* =========================================
+   HERO CONTENT
+========================================= */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1500px;
+  padding: 50px 8%;
+}
+
+/* =========================================
+   PRODUCTION LABEL
+========================================= */
+
+.hero-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 17px;
+  color: #ff6976;
+  background: rgba(215, 25, 45, 0.09);
+  border: 1px solid rgba(215, 25, 45, 0.38);
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  box-shadow: 0 0 25px rgba(215, 25, 45, 0.06);
+}
+
+.hero-label svg {
+  flex-shrink: 0;
+  color: var(--blood-red);
+}
+
+.hero-label-line {
+  width: 25px;
+  height: 1px;
+  background: var(--blood-red);
+  margin-left: 5px;
+}
+
+/* =========================================
+   FILM TITLE
+========================================= */
+
+.hero-pretitle {
+  margin-top: 35px;
+  margin-bottom: 7px;
+  color: var(--ice-blue);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 7px;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(110px, 19vw, 250px);
+  font-weight: 900;
+  line-height: 0.86;
+  letter-spacing: -7px;
+  color: #fff;
+  text-shadow: 0 10px 50px rgba(0, 0, 0, 0.65);
+}
+
+.hero-title span {
+  color: var(--blood-red);
+  text-shadow: 0 0 45px rgba(215, 25, 45, 0.35);
+}
+
+.hero-title-underline {
+  height: 4px;
+  margin-top: 18px;
+  background: linear-gradient(
+    90deg,
+    var(--blood-red),
+    rgba(215, 25, 45, 0)
+  );
+  box-shadow: 0 0 15px var(--red-glow);
+}
+
+.hero-description {
+  margin-top: 23px;
+  color: #d1d9e0;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 2.8px;
+  font-weight: 600;
+}
+
+/* =========================================
+   RELEASE INFORMATION
+========================================= */
+
+.hero-release {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 28px;
+  padding-left: 15px;
+  border-left: 3px solid var(--blood-red);
+}
+
+.hero-release-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  color: var(--ice-blue);
+  background: rgba(158, 220, 243, 0.07);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+
+.hero-release span {
+  color: var(--text-secondary);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.hero-release h2 {
+  margin-top: 5px;
+  font-family: var(--font-heading);
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--ice-white);
+}
+
+.hero-release h2 i {
+  color: var(--blood-red);
+  font-style: normal;
+}
+
+/* =========================================
+   ACTION BUTTONS
+========================================= */
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.hero-trailer-btn,
+.hero-explore-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  min-height: 49px;
+  padding: 14px 23px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  border-radius: 3px;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.hero-trailer-btn {
+  color: #fff;
+  background: var(--blood-red);
+  border: 1px solid var(--blood-red);
+  box-shadow: 0 7px 25px rgba(215, 25, 45, 0.18);
+}
+
+.hero-trailer-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 35px var(--red-glow);
+  background: #ed2438;
+}
+
+.hero-explore-btn {
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.hero-explore-btn:hover {
+  color: #050a0e;
+  background: var(--ice-white);
+  border-color: var(--ice-white);
+  transform: translateY(-3px);
+}
+
+.hero-actions a:active {
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   RELEASE COUNTDOWN
+========================================= */
+
+.hero-countdown {
+  margin-top: 38px;
+}
+
+.countdown-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.countdown-indicator {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--blood-red);
+  box-shadow: 0 0 12px var(--blood-red);
+  animation: countdownPulse 1.5s infinite;
+}
+
+@keyframes countdownPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.45;
+    transform: scale(0.75);
+  }
+}
+
+.countdown-heading p {
+  color: var(--ice-blue);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+}
+
+.countdown-items {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 76px;
+  padding: 12px 14px;
+  background: rgba(8, 19, 27, 0.72);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.countdown-item:hover {
+  border-color: var(--blood-red);
+  background: rgba(215, 25, 45, 0.09);
+  transform: translateY(-3px);
+}
+
+.countdown-item strong {
+  color: var(--ice-white);
+  font-family: var(--font-heading);
+  font-size: 35px;
+  font-weight: 800;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-item span {
+  color: var(--text-secondary);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.countdown-arrived {
+  color: var(--blood-red);
+  font-family: var(--font-heading);
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+
+/* =========================================
+   BOTTOM SCROLL INDICATOR
+========================================= */
+
+.hero-bottom {
+  position: absolute;
+  z-index: 2;
+  bottom: 25px;
+  left: 8%;
+  right: 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  color: #8796a4;
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 2.2px;
+}
+
+.scroll-line {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--blood-red),
+    transparent
+  );
+  transform-origin: left;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .hero-section {
+    background-position: 60% center;
+  }
+
+  .hero-content {
+    padding: 50px 6%;
+  }
+
+  .hero-title {
+    font-size: clamp(110px, 20vw, 190px);
+  }
+
+  .hero-bottom {
+    left: 6%;
+    right: 6%;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto;
+    min-height: 850px;
+    max-height: none;
+    align-items: center;
+    background-position: 63% center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(3, 9, 15, 0.93),
+        rgba(3, 9, 15, 0.48)
+      ),
+      linear-gradient(
+        0deg,
+        var(--bg-primary) 0%,
+        rgba(3, 9, 15, 0.65) 55%,
+        rgba(3, 9, 15, 0.35) 100%
+      );
+  }
+
+  .hero-content {
+    padding: 65px 6% 90px;
+  }
+
+  .hero-pretitle {
+    font-size: 11px;
+    letter-spacing: 5px;
+  }
+
+  .hero-title {
+    font-size: clamp(100px, 24vw, 165px);
+    letter-spacing: -5px;
+  }
+
+  .hero-description {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  .hero-release h2 {
+    font-size: 33px;
+  }
+
+  .hero-actions {
+    gap: 12px;
+  }
+
+  .hero-trailer-btn,
+  .hero-explore-btn {
+    padding: 14px 17px;
+    font-size: 9px;
+  }
+
+  .hero-countdown {
+    margin-top: 32px;
+  }
+
+  .countdown-items {
+    gap: 9px;
+  }
+
+  .countdown-item {
+    min-width: 65px;
+    padding: 11px 9px;
+  }
+
+  .countdown-item strong {
+    font-size: 29px;
+  }
+
+  .hero-bottom {
+    bottom: 20px;
+    left: 6%;
+    right: 6%;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+  }
+
+  .scroll-line {
+    width: 40px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+  .hero-section {
+    min-height: 820px;
+    background-position: 65% center;
+  }
+
+  .hero-content {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .hero-label {
+    padding: 9px 12px;
+    font-size: 8px;
+    letter-spacing: 1.5px;
+    gap: 7px;
+  }
+
+  .hero-label-line {
+    width: 15px;
+  }
+
+  .hero-title {
+    font-size: clamp(90px, 24vw, 120px);
+    letter-spacing: -4px;
+  }
+
+  .hero-release {
+    gap: 10px;
+  }
+
+  .hero-release h2 {
+    font-size: 29px;
+    letter-spacing: 2px;
+  }
+
+  .hero-release span {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+
+  .hero-trailer-btn,
+  .hero-explore-btn {
+    padding: 13px 12px;
+    gap: 7px;
+    font-size: 8px;
+  }
+
+  .countdown-items {
+    gap: 7px;
+  }
+
+  .countdown-item {
+    min-width: 58px;
+    padding: 10px 7px;
+  }
+
+  .countdown-item strong {
+    font-size: 26px;
+  }
+
+  .countdown-item span {
+    font-size: 7px;
+  }
+
+  .hero-bottom {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+.hero-actions a:focus-visible {
+  outline: 2px solid var(--ice-blue);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section *,
+  .hero-section *::before,
+  .hero-section *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

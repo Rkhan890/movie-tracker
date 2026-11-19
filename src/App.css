@@ -1,0 +1,23 @@
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  isolation: isolate;
+}
+
+.section-padding {
+  width: 100%;
+  padding: 80px 6%;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 55px 5%;
+  }
+}

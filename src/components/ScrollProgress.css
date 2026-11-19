@@ -1,0 +1,59 @@
+
+/* =========================================
+   KING CINEMATIC SCROLL PROGRESS
+========================================= */
+
+.king-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10001;
+  width: 100%;
+  pointer-events: none;
+}
+
+.scroll-progress-track {
+  width: 100%;
+  height: 3px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.scroll-progress-fill {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    #720b19 0%,
+    #d7192d 55%,
+    #ff6575 100%
+  );
+  box-shadow:
+    0 0 8px rgba(215, 25, 45, 0.8),
+    0 0 18px rgba(215, 25, 45, 0.4);
+  transition: width 0.12s linear;
+}
+
+.scroll-progress-fill::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: 0;
+  width: 35px;
+  height: 9px;
+  border-radius: 50%;
+  background: #ff5265;
+  filter: blur(7px);
+}
+
+@media (max-width: 768px) {
+  .scroll-progress-track {
+    height: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress-fill {
+    transition: none;
+  }
+}

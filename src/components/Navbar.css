@@ -1,0 +1,187 @@
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  background: rgba(4, 11, 17, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-container {
+  width: 100%;
+  min-height: 82px;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-shrink: 0;
+}
+
+.logo-crown {
+  color: var(--blood-red);
+  width: 35px;
+  height: 35px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-heading);
+  font-size: 29px;
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: 2px;
+}
+
+.logo-text small {
+  font-family: 'Inter', sans-serif;
+  color: var(--blood-red);
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-align: center;
+  margin-top: 6px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 13px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 30px;
+  transition: 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  color: white;
+  background: rgba(215, 25, 45, 0.15);
+  box-shadow: 0 0 18px var(--red-glow);
+}
+
+.nav-link:first-child {
+  color: white;
+  background: var(--blood-red);
+}
+
+.bookmyshow-btn {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 19px;
+  border: 1px solid var(--blood-red);
+  border-radius: 30px;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  background: rgba(215, 25, 45, 0.12);
+  transition: 0.3s ease;
+  white-space: nowrap;
+}
+
+.bookmyshow-btn:hover {
+  background: var(--blood-red);
+  box-shadow: 0 0 25px var(--red-glow);
+  transform: translateY(-2px);
+}
+
+.mobile-menu-btn {
+  display: none;
+  color: white;
+  background: transparent;
+}
+
+.mobile-menu-overlay {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .nav-links {
+    gap: 0;
+  }
+
+  .nav-link {
+    padding: 10px 8px;
+    font-size: 11px;
+  }
+
+  .nav-link svg {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .navbar-container {
+    min-height: 70px;
+    padding: 0 5%;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .bookmyshow-btn {
+    margin-left: auto;
+    padding: 10px 12px;
+    font-size: 10px;
+  }
+
+  .bookmyshow-btn svg {
+    width: 15px;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+
+  .mobile-menu-overlay {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 10px 5% 20px;
+    background: rgba(4, 11, 17, 0.98);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .mobile-menu-overlay a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .mobile-menu-overlay a:hover {
+    color: var(--blood-red);
+  }
+}
+
+@media (max-width: 380px) {
+  .bookmyshow-btn span {
+    display: none;
+  }
+}

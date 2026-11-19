@@ -1,0 +1,178 @@
+
+.announcements-section {
+  position: relative;
+  background: #080f15;
+  color: var(--ice-white);
+}
+
+.announcements-container {
+  max-width: 1250px;
+  margin: auto;
+}
+
+.announcements-heading {
+  text-align: center;
+  margin-bottom: 55px;
+}
+
+.announcements-heading > span {
+  color: var(--ice-blue);
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 700;
+}
+
+.announcements-heading h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(42px, 7vw, 75px);
+  margin: 15px 0;
+}
+
+.announcements-heading h2 strong {
+  color: var(--blood-red);
+}
+
+.announcements-heading p {
+  color: var(--text-secondary);
+}
+
+.announcement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.announcement-card {
+  overflow: hidden;
+  background: rgba(14, 27, 37, 0.85);
+  border: 1px solid rgba(158, 220, 243, 0.13);
+  border-radius: 12px;
+  transition: transform 0.35s, border-color 0.35s;
+}
+
+.announcement-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(158, 220, 243, 0.5);
+}
+
+.announcement-image {
+  display: block;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #101820;
+}
+
+.announcement-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.announcement-card:hover .announcement-image img {
+  transform: scale(1.07);
+}
+
+.announcement-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 45%, rgba(0, 0, 0, 0.65));
+}
+
+.announcement-play {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 55px;
+  height: 55px;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--blood-red);
+  color: white;
+  transition: 0.3s;
+}
+
+.announcement-image:hover .announcement-play {
+  box-shadow: 0 0 30px var(--red-glow);
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+.announcement-status {
+  position: absolute;
+  z-index: 2;
+  bottom: 14px;
+  left: 15px;
+  color: white;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.announcement-content {
+  padding: 23px;
+}
+
+.announcement-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--ice-blue);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.announcement-content h3 {
+  font-family: var(--font-heading);
+  font-size: 27px;
+  margin: 17px 0 8px;
+}
+
+.announcement-content p {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.7;
+  min-height: 44px;
+}
+
+.announcement-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  color: var(--ice-white);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  transition: color 0.3s;
+}
+
+.announcement-link:hover {
+  color: var(--blood-red);
+}
+
+@media (max-width: 900px) {
+  .announcement-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .announcement-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .announcements-heading {
+    margin-bottom: 35px;
+  }
+
+  .announcement-content {
+    padding: 20px;
+  }
+}
