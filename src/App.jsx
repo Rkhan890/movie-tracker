@@ -10,7 +10,7 @@ import Hero from "./sections/Hero";
 import YouTubeTracker from "./sections/YouTubeTracker";
 import Gallery from "./sections/Gallery";
 import GameZone from "./sections/GameZone";
-import Songs from "./sections/Songs";
+import Songs from "./sections/songs";
 import Announcements from "./sections/Announcements";
 import About from "./sections/About";
 
