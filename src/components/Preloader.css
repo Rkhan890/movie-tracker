@@ -8,8 +8,9 @@
   inset: 0;
   z-index: 99999;
   width: 100%;
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -128,6 +129,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 .preloader-brand {
@@ -150,6 +153,7 @@
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 3px;
+  text-align: right;
 }
 
 /* MAIN CONTENT */
@@ -162,7 +166,8 @@
   align-items: center;
   justify-content: center;
   flex: 1;
-  padding: 35px 0;
+  min-height: 0;
+  padding: 25px 0;
 }
 
 /* KING OF HEARTS CARD */
@@ -171,6 +176,7 @@
   position: relative;
   width: 132px;
   height: 182px;
+  flex-shrink: 0;
   margin-bottom: 43px;
   transform-style: preserve-3d;
 }
@@ -313,6 +319,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 100%;
 }
 
 .preloader-kicker {
@@ -324,6 +331,7 @@
 }
 
 .preloader-title {
+  max-width: 100%;
   margin: 0;
   font-family: var(--font-heading), Impact, sans-serif;
   font-size: clamp(75px, 13vw, 145px);
@@ -365,6 +373,7 @@
 .preloader-title-line {
   width: 100px;
   height: 2px;
+  flex-shrink: 0;
   margin: 18px 0;
   background: linear-gradient(
     90deg,
@@ -389,6 +398,7 @@
   position: relative;
   z-index: 2;
   width: min(100%, 430px);
+  flex-shrink: 0;
   margin: 0 auto;
 }
 
@@ -397,6 +407,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
 }
 
 .preloader-loading-info {
@@ -448,6 +459,7 @@
   width: 35px;
   height: 35px;
   opacity: 0.4;
+  pointer-events: none;
 }
 
 .corner-left {
@@ -463,12 +475,12 @@
 }
 
 /* =========================================
-   RESPONSIVE
+   TABLET
 ========================================= */
 
 @media (max-width: 768px) {
   .king-preloader {
-    padding: 28px 6%;
+    padding: 30px 6%;
   }
 
   .preloader-edition {
@@ -479,11 +491,11 @@
   .preloader-card-wrap {
     width: 112px;
     height: 155px;
-    margin-bottom: 38px;
+    margin-bottom: 32px;
   }
 
   .preloader-title {
-    font-size: clamp(72px, 19vw, 115px);
+    font-size: clamp(68px, 16vw, 110px);
     letter-spacing: 4px;
   }
 
@@ -503,73 +515,259 @@
   }
 }
 
+/* =========================================
+   MOBILE
+========================================= */
+
 @media (max-width: 480px) {
   .king-preloader {
-    padding: 24px 6%;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    padding-top: max(20px, env(safe-area-inset-top));
+    padding-right: 22px;
+    padding-bottom: max(22px, env(safe-area-inset-bottom));
+    padding-left: 22px;
+  }
+
+  .preloader-top {
+    gap: 8px;
   }
 
   .preloader-brand {
-    font-size: 16px;
+    gap: 7px;
+    font-size: 15px;
+    letter-spacing: 2px;
+  }
+
+  .preloader-brand svg {
+    width: 14px;
+    height: 14px;
   }
 
   .preloader-edition {
     font-size: 6px;
-    letter-spacing: 1.5px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .preloader-content {
+    padding: 12px 0;
   }
 
   .preloader-card-wrap {
-    width: 100px;
-    height: 140px;
-    margin-bottom: 35px;
+    width: 88px;
+    height: 122px;
+    margin-bottom: 27px;
   }
 
   .preloader-card {
-    border-radius: 9px;
+    border-radius: 8px;
+  }
+
+  .preloader-card::before {
+    inset: 5px;
+  }
+
+  .card-top {
+    top: 10px;
+    left: 10px;
+  }
+
+  .card-bottom {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .card-corner strong {
+    font-size: 19px;
+  }
+
+  .card-corner span {
+    font-size: 13px;
+  }
+
+  .card-center {
+    gap: 5px;
   }
 
   .card-center svg {
-    width: 42px;
-    height: 42px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .card-center span {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+
+  .card-center strong {
+    font-size: 19px;
+  }
+
+  .preloader-title-wrap {
+    width: 100%;
+    padding: 0 2px;
+  }
+
+  .preloader-kicker {
+    font-size: 7px;
+    letter-spacing: 1.6px;
+    line-height: 1.5;
   }
 
   .preloader-title {
-    font-size: 22vw;
+    font-size: clamp(62px, 20vw, 92px);
     letter-spacing: 2px;
+    line-height: 1;
+    white-space: nowrap;
   }
 
   .preloader-title-line {
-    margin: 14px 0;
+    width: 75px;
+    margin: 12px 0;
+  }
+
+  .preloader-tagline {
+    max-width: 100%;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    line-height: 1.6;
   }
 
   .preloader-bottom {
     width: 100%;
+    max-width: none;
   }
 
   .preloader-loading-info {
-    font-size: 8px;
-    letter-spacing: 1px;
-  }
-
-  .preloader-footer {
+    margin-bottom: 9px;
     font-size: 7px;
     letter-spacing: 1px;
   }
 
+  .preloader-loading-info strong {
+    font-size: 16px;
+  }
+
+  .preloader-progress-track {
+    height: 2px;
+  }
+
+  .preloader-footer {
+    margin-top: 9px;
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+
   .preloader-corner {
-    width: 22px;
-    height: 22px;
+    display: none;
   }
 
-  .corner-left {
-    left: 12px;
+  .preloader-red-glow {
+    width: 330px;
+    height: 330px;
+    filter: blur(25px);
   }
 
-  .corner-right {
-    right: 12px;
+  .preloader-grid {
+    background-size: 45px 45px;
   }
 }
 
-/* REDUCED MOTION */
+/* =========================================
+   SMALL HEIGHT PHONES
+========================================= */
+
+@media (max-width: 480px) and (max-height: 700px) {
+  .king-preloader {
+    padding-top: max(14px, env(safe-area-inset-top));
+    padding-bottom: max(14px, env(safe-area-inset-bottom));
+  }
+
+  .preloader-card-wrap {
+    width: 72px;
+    height: 100px;
+    margin-bottom: 17px;
+  }
+
+  .preloader-card::before {
+    inset: 4px;
+  }
+
+  .card-top {
+    top: 8px;
+    left: 8px;
+  }
+
+  .card-bottom {
+    right: 8px;
+    bottom: 8px;
+  }
+
+  .card-center svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .card-center span {
+    font-size: 8px;
+  }
+
+  .preloader-content {
+    padding: 8px 0;
+  }
+
+  .preloader-title {
+    font-size: clamp(55px, 18vw, 75px);
+  }
+
+  .preloader-title-line {
+    margin: 8px 0;
+  }
+
+  .preloader-tagline {
+    font-size: 6px;
+  }
+}
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 360px) {
+  .king-preloader {
+    padding-left: 17px;
+    padding-right: 17px;
+  }
+
+  .preloader-brand {
+    font-size: 13px;
+  }
+
+  .preloader-edition {
+    font-size: 5px;
+  }
+
+  .preloader-title {
+    font-size: 19vw;
+    letter-spacing: 1px;
+  }
+
+  .preloader-kicker {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+
+  .preloader-tagline {
+    font-size: 5.5px;
+    letter-spacing: 1px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
 
 @media (prefers-reduced-motion: reduce) {
   .preloader-red-glow,
